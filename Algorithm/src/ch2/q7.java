@@ -5,12 +5,19 @@ import java.util.Scanner;
 public class q7 {
 	
 	static int cardConvEx(int x, int r, char[] d) {
-		int digst = 0;		//변환 숫자 자릿수
+		int digits = 0;		//변환 숫자 자릿수
 		String dchar = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		
 		do {
-			
-		}
+			d[digits++] = dchar.charAt(x%r);
+			x/=r;		
+		} while(x>= r);
+		
+		d[digits++] = dchar.charAt(x);
+		
+		for(int i=0; i<digits; i++)
+			System.out.println("d[" + i + "]=" + d[i]);
+		return digits;
 	}
 
 	public static void main(String[] args) {
@@ -34,10 +41,10 @@ public class q7 {
 				cd = sc.nextInt();
 			} while (cd < 2 || cd > 36);
 			
-			dno = cardConvR(no, cd, cno); //no를 cd진수로 변환
+			dno = cardConvEx(no, cd, cno); //no를 cd진수로 변환
 			
 			System.out.print(cd + "진수로는 ");
-			for (int i=0; i<dno; i++)   //윗자리부터 차례로 나타냄
+			for (int i=dno-1; i>=0; i--)   //윗자리부터 차례로 나타냄
 				System.out.print(cno[i]);
 			System.out.println("입니다.");
 			
