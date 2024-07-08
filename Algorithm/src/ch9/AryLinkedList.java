@@ -7,7 +7,7 @@ public class AryLinkedList<E> {
 	//노드
 	class Node<E> {
 		private E data;         //데이터
-		private int next;       //리스트위 뒤쪽 포인터
+		private int next;       //리스트의 뒤쪽 포인터
 		private int dnext;      //free 리스트의 뒤쪽 포인터
 		
 		//data와 next를 설정
